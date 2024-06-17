@@ -5,7 +5,7 @@ Your task is to complete the incomplete function definition. so that it behaves 
 Do not run this file directly.
 Rather, call this function from main.py and run that file.
 """
-
+import random
 
 def guess_number(low, high, num_attempts):
     """
@@ -24,3 +24,17 @@ def guess_number(low, high, num_attempts):
     :param num_attempts: The number of attempts the user is given to guess the correct number.
     :returns: True if the user answers any attempt correctly, False otherwise.
     """
+    random_number = random.randint(low, high)
+
+    print(f"Your range is between {low} and {high}. You have {num_attempts} attempts to guess the correct number.")
+    for i in range(num_attempts):
+        user_guess = input("What is your guess?")
+        if not user_guess.isdigit():
+            print("Incorrect!")
+        elif int(user_guess) == random_number:
+            return True
+        else:
+            print("Incorrect!")
+
+    return False
+        
